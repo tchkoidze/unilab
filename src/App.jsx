@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Registration from "./pages/Registration";
 import Header from "./layouts/Header";
 import FormPage from "./pages/Form";
+import Popup from "./components/Popup";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,17 +12,19 @@ function App() {
   const location = useLocation();
   const hideHeaderRoutes = ["/", "/registration"];
   const shouldShowHeader = !hideHeaderRoutes.includes(location.pathname);
+  const [close, setClose] = useState(false);
+  console.log(close);
 
   return (
-    <div>
-      {shouldShowHeader && <Header />}
-
+    <>
+      {shouldShowHeader && <Header close={close} setClose={setClose} />}
+      {close ? <Popup setClose={setClose} /> : null}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/form" element={<FormPage />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

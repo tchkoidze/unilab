@@ -49,10 +49,10 @@ const FormPage = () => {
         <div style={{ width: "1200px", position: "relative" }}>
           <TableComponent
             data={jsonData}
-            filter={filters}
-            setfilter={setFilters}
+            filters={filters}
+            setfilters={setFilters}
           />
-          {filter ? <Filter filter={filters} setfilter={setFilters} /> : null}
+          {filter ? <Filter filters={filters} setFilters={setFilters} /> : null}
         </div>
       </StudentInfoBox>
     </Main>

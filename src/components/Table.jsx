@@ -5,7 +5,7 @@ const TableWrapper = styled.div`
   //margin: 20px;
   font-family: Arial, sans-serif;
   //width: 1200px;
-  width: 100%;
+  //width: 100%;
   overflow-x: auto;
   background-color: #fff;
 `;
@@ -44,18 +44,35 @@ const PaginationButton = styled.span`
 
 const itemsPerPage = 7;
 
-function TableComponent({ data }) {
+function TableComponent({ data, filters, setfilters }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [displayData, setDisplayData] = useState([]);
+  let totalPages;
+  //const totalPages = Math.ceil(data.length / itemsPerPage);
 
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-
+  // Filter the data based on selected filter options
+  /*const filteredData = displayData.filter((item) => {
+    const { status, sex } = item;
+    return filters.status.includes(status) && filters.sex.includes(sex);
+  });
+  console.log("filtered: ", filteredData.length);*/
+  //const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  let filteredData;
   useEffect(() => {
+    // Filter the data based on the selected filter options
+    filteredData = data.filter((item) => {
+      const { status, sex } = item;
+      return filters.status.includes(status) && filters.sex.includes(sex);
+    });
+
+    totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
     const startIndex = (currentPage - 1) * itemsPerPage;
+    console.log(startIndex);
     const endIndex = startIndex + itemsPerPage;
     const itemsToDisplay = data.slice(startIndex, endIndex);
     setDisplayData(itemsToDisplay);
-  }, [data, currentPage]);
+  }, [data, filters, currentPage]);
 
   const renderTable = () => (
     <Table>
@@ -73,7 +90,7 @@ function TableComponent({ data }) {
         </tr>
       </thead>
       <tbody>
-        {displayData.map((item, index) => (
+        {/*displayData.map((item, index) => (
           <tr key={index}>
             <Td>{item["full-name"]}</Td>
             <Td>{item["status"]}</Td>
@@ -85,7 +102,22 @@ function TableComponent({ data }) {
             <Td>{item["address"]}</Td>
             <Td>{item["birth-date"]}</Td>
           </tr>
-        ))}
+        ))*/}
+        {filteredData
+          ? filteredData.map((item, index) => (
+              <tr key={index}>
+                <Td>{item["full-name"]}</Td>
+                <Td>{item["status"]}</Td>
+                <Td>{item["sex"]}</Td>
+                <Td>{item["grades"]}</Td>
+                <Td>{item["id"]}</Td>
+                <Td>{item["email"]}</Td>
+                <Td>{item["phone-number"]}</Td>
+                <Td>{item["address"]}</Td>
+                <Td>{item["birth-date"]}</Td>
+              </tr>
+            ))
+          : null}
       </tbody>
     </Table>
   );
@@ -107,9 +139,25 @@ function TableComponent({ data }) {
   return (
     <TableWrapper>
       {renderTable()}
+
       {renderPagination()}
     </TableWrapper>
   );
 }
 
 export default TableComponent;
+
+/*
+{ filteredData.map((item, index) => (
+          <tr key={index}>
+            <Td>{item["full-name"]}</Td>
+            <Td>{item["status"]}</Td>
+            <Td>{item["sex"]}</Td>
+            <Td>{item["grades"]}</Td>
+            <Td>{item["id"]}</Td>
+            <Td>{item["email"]}</Td>
+            <Td>{item["phone-number"]}</Td>
+            <Td>{item["address"]}</Td>
+            <Td>{item["birth-date"]}</Td>
+          </tr>
+        ))}*/

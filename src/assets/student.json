@@ -1,5 +1,137 @@
 [
   {
+    "full-name": "Giorgi Beridze",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 95,
+    "id": "0100101011",
+    "email": "giorgi.beridze@example.com",
+    "phone-number": "595 899 899",
+    "address": "129 Rustaveli St.",
+    "birth-date": "01/09/1995"
+  },
+  {
+    "full-name": "Nino Jonadze",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 98,
+    "id": "0100101012",
+    "email": "nino.jonadze@example.com",
+    "phone-number": "595 899 899",
+    "address": "130 Rustaveli St.",
+    "birth-date": "02/12/1990"
+  },
+  {
+    "full-name": "Levan Diliani",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 87,
+    "id": "0100101013",
+    "email": "levan.diliani@example.com",
+    "phone-number": "595 899 899",
+    "address": "131 Rustaveli St.",
+    "birth-date": "03/11/1987"
+  },
+  {
+    "full-name": "Tea Kolmani",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 93,
+    "id": "0100101014",
+    "email": "tea.kolmani@example.com",
+    "phone-number": "595 899 899",
+    "address": "132 Rustaveli St.",
+    "birth-date": "04/07/1980"
+  },
+  {
+    "full-name": "Mari Kvachishvili",
+    "status": "INACTIVE",
+    "sex": "FEMALE",
+    "grades": 80,
+    "id": "0100101015",
+    "email": "mari.kvachishvili@example.com",
+    "phone-number": "595 899 899",
+    "address": "133 Rustaveli St.",
+    "birth-date": "05/20/1975"
+  },
+  {
+    "full-name": "David Kvachishvili",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 91,
+    "id": "0100101016",
+    "email": "david.kvachishvili@example.com",
+    "phone-number": "595 899 899",
+    "address": "134 Rustaveli St.",
+    "birth-date": "06/14/1983"
+  },
+  {
+    "full-name": "Nikoloz Kobulia",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 89,
+    "id": "0100101017",
+    "email": "nikoloz.kobulia@example.com",
+    "phone-number": "595 899 899",
+    "address": "135 Rustaveli St.",
+    "birth-date": "07/25/1987"
+  },
+  {
+    "full-name": "Tamar Nodadze",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 86,
+    "id": "0100101018",
+    "email": "tamar.nodadze@example.com",
+    "phone-number": "595 899 899",
+    "address": "136 Rustaveli St.",
+    "birth-date": "08/30/1995"
+  },
+  {
+    "full-name": "Sophia White",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 94,
+    "id": "0100101019",
+    "email": "sophia.white@example.com",
+    "phone-number": "595 899 899",
+    "address": "137 Rustaveli St.",
+    "birth-date": "09/16/1983"
+  },
+  {
+    "full-name": "George Mikeladze",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 92,
+    "id": "0100101020",
+    "email": "george.mikeladze@example.com",
+    "phone-number": "595 899 899",
+    "address": "138 Rustaveli St.",
+    "birth-date": "10/25/1987"
+  },
+  {
+    "full-name": "Nina Nodia",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 88,
+    "id": "0100101021",
+    "email": "nina.nodia@example.com",
+    "phone-number": "595 899 899",
+    "address": "139 Rustaveli St.",
+    "birth-date": "11/08/1989"
+  },
+  {
+    "full-name": "Luka Khelaia",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 97,
+    "id": "0100101022",
+    "email": "luka.khelaia@example.com",
+    "phone-number": "595 899 899",
+    "address": "140 Rustaveli St.",
+    "birth-date": "12/12/1981"
+  },
+  {
     "full-name": "Ana Chikhladze",
     "status": "ACTIVE",
     "sex": "FEMALE",

@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = (props) => {
   // Get the name from local storage
   const name = localStorage.getItem("name");
   // Get the avatar image from local storage
@@ -16,7 +16,7 @@ const Header = () => {
         <ApiLink>API</ApiLink>
         <UserContainer>
           <UserName>{name}</UserName>
-          <UserImg src={avatarDataURL} />
+          <UserImg src={avatarDataURL} onClick={() => props.setClose(true)} />
         </UserContainer>
       </Box>
     </HeaderContainer>
