@@ -1,0 +1,156 @@
+[
+  {
+    "full-name": "Ana Chikhladze",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 90,
+    "id": "0100101023",
+    "email": "ana.chikhladze@example.com",
+    "phone-number": "595 899 899",
+    "address": "141 Rustaveli St.",
+    "birth-date": "01/18/1986"
+  },
+  {
+    "full-name": "Vakhtang Abashidze",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 85,
+    "id": "0100101024",
+    "email": "vakhtang.abashidze@example.com",
+    "phone-number": "595 899 899",
+    "address": "142 Rustaveli St.",
+    "birth-date": "02/19/1984"
+  },
+  {
+    "full-name": "Tinatin Makharadze",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 83,
+    "id": "0100101025",
+    "email": "tinatin.makharadze@example.com",
+    "phone-number": "595 899 899",
+    "address": "143 Rustaveli St.",
+    "birth-date": "03/22/1982"
+  },
+  {
+    "full-name": "MINDIA ARABULI",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 100,
+    "id": "0100101010",
+    "email": "mindia.1998@gmail.com",
+    "phone-number": "595 899 899",
+    "address": "129 Rustaveli Street",
+    "birth-date": "01/09/1998"
+  },
+  {
+    "full-name": "John Doe",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 95,
+    "id": "1234567890",
+    "email": "john.doe@example.com",
+    "phone-number": "595 555 555",
+    "address": "123 Main Street",
+    "birth-date": "05/15/1990"
+  },
+  {
+    "full-name": "Alice Johnson",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 98,
+    "id": "9876543210",
+    "email": "alice.j@example.com",
+    "phone-number": "595 123 456",
+    "address": "456 Elm Avenue",
+    "birth-date": "12/03/1985"
+  },
+  {
+    "full-name": "Bob Smith",
+    "status": "INACTIVE",
+    "sex": "MALE",
+    "grades": 80,
+    "id": "5555555555",
+    "email": "bob.smith@example.com",
+    "phone-number": "595 987 654",
+    "address": "789 Oak Lane",
+    "birth-date": "08/20/1975"
+  },
+  {
+    "full-name": "Emma Brown",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 92,
+    "id": "1111111111",
+    "email": "emma.b@example.com",
+    "phone-number": "595 778 88",
+    "address": "101 Pine Street",
+    "birth-date": "03/10/1992"
+  },
+  {
+    "full-name": "Michael Davis",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 89,
+    "id": "3333333333",
+    "email": "michael.d@example.com",
+    "phone-number": "595 222 333",
+    "address": "222 Maple Road",
+    "birth-date": "07/14/1980"
+  },
+  {
+    "full-name": "Sophia Wilson",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 96,
+    "id": "4444444444",
+    "email": "sophia.w@example.com",
+    "phone-number": "595 444 555",
+    "address": "555 Cedar Street",
+    "birth-date": "10/25/1987"
+  },
+  {
+    "full-name": "David Taylor",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 88,
+    "id": "0100102467",
+    "email": "david.t@example.com",
+    "phone-number": "598 111 222",
+    "address": "333 Oak Avenue",
+    "birth-date": "04/30/1995"
+  },
+  {
+    "full-name": "Olivia White",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 94,
+    "id": "7777777777",
+    "email": "olivia.w@example.com",
+    "phone-number": "577 567 777",
+    "address": "777 Pine Road",
+    "birth-date": "11/08/1989"
+  },
+  {
+    "full-name": "William Martinez",
+    "status": "ACTIVE",
+    "sex": "MALE",
+    "grades": 91,
+    "id": "8888888888",
+    "email": "william.m@example.com",
+    "phone-number": "555 999 000",
+    "address": "888 Elm Street",
+    "birth-date": "09/16/1983"
+  },
+  {
+    "full-name": "Ava Thomas",
+    "status": "ACTIVE",
+    "sex": "FEMALE",
+    "grades": 97,
+    "id": "9999999999",
+    "email": "ava.t@example.com",
+    "phone-number": "577 999 0000",
+    "address": "888 Palm Street",
+    "birth-date": "09/10/1983"
+  }
+]
