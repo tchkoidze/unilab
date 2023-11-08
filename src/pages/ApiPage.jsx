@@ -35,7 +35,7 @@ const PostList = () => {
           <PaginationButton
             key={index}
             onClick={() => paginate(index + 1)}
-            active={currentPage === index + 1}
+            //active={currentPage === index + 1}
           >
             {index + 1}
           </PaginationButton>
