@@ -73,6 +73,7 @@ const Registration = () => {
               <InputImg
                 id="avatar"
                 type="file"
+                accept="image/*"
                 {...register("avatar", {
                   required: true,
                   onChange: handleImageChange,
