@@ -51,6 +51,7 @@ const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 16px;
+  font-family: Montserrat, sans-serif;
 `;
 
 const PaginationButton = styled.button`
@@ -69,4 +70,5 @@ const PostContainer = styled.div`
   padding: 16px;
   margin: 16px;
   color: #fff;
+  font-family: Montserrat, sans-serif;
 `;
