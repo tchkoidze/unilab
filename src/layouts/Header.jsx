@@ -13,15 +13,31 @@ const Header = (props) => {
 
   return (
     <HeaderContainer>
-      <Form>Form</Form>
-
-      <Box>
-        <ApiLink to="/api">API</ApiLink>
-        <UserContainer>
-          <UserName>{name}</UserName>
-          <UserImg src={avatarDataURL} onClick={() => props.setClose(true)} />
-        </UserContainer>
-      </Box>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          height: "120px",
+        }}
+      >
+        <Form>Form</Form>
+        <Box>
+          <ApiLink to="/api">API</ApiLink>
+          {/*this div is for border line between api button and user name */}
+          <div
+            style={{
+              width: "1px",
+              height: "120px",
+              backgroundColor: "#EBEBEB",
+            }}
+          ></div>
+          <UserContainer>
+            <UserName>{name}</UserName>
+            <UserImg src={avatarDataURL} onClick={() => props.setClose(true)} />
+          </UserContainer>
+        </Box>
+      </div>
     </HeaderContainer>
   );
 };
@@ -29,10 +45,6 @@ const Header = (props) => {
 export default Header;
 
 const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 120px;
   color: #fff;
   padding: 0 62px;
   border-bottom: 1px solid #ebebeb;
@@ -59,7 +71,7 @@ const ApiLink = styled(Link)`
   line-height: normal;
   padding-right: 53px;
   text-decoration: none;
-  border-right: 1px solid #ebebeb;
+  //border-right: 1px solid #ebebeb;
 `;
 
 const UserContainer = styled.div`
@@ -81,11 +93,3 @@ const UserImg = styled.img`
   height: 80px;
   border-radius: 50px;
 `;
-
-/*useEffect(() => {
-  // Get the name from local storage
-  const name = localStorage.getItem("name");
-
-  // Get the avatar image from local storage
-  const avatarDataURL = localStorage.getItem("avatar");
-}, []);*/
