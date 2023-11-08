@@ -28,7 +28,7 @@ const FormPage = () => {
             setFilter(!filter);
           }}
         >
-          <FilterImg src={filterimg} />
+          <FilterImg src={filterimg} alt="icon" />
           <div
             style={{
               width: "1px",
@@ -41,7 +41,7 @@ const FormPage = () => {
           <SpanFilter>filter</SpanFilter>
         </FilterBtn>
         <Searchbox>
-          <FilterImg src={searchimg} />
+          <FilterImg src={searchimg} alt="icon" />
           <SearchInput />
         </Searchbox>
       </Box1>

@@ -34,7 +34,11 @@ const Header = (props) => {
           ></div>
           <UserContainer>
             <UserName>{name}</UserName>
-            <UserImg src={avatarDataURL} onClick={() => props.setClose(true)} />
+            <UserImg
+              src={avatarDataURL}
+              alt="avatar"
+              onClick={() => props.setClose(true)}
+            />
           </UserContainer>
         </Box>
       </div>

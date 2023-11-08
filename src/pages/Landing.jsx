@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Landing = () => {
   return (
     <Main>
-      <LandingImg src={img1} />
+      <LandingImg src={img1} alt="back ground" />
       <LandingHeader>Get Started Today</LandingHeader>
       <GetStartedBtn to="/registration">Get Started</GetStartedBtn>
     </Main>

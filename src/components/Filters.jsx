@@ -21,7 +21,7 @@ const Filter = ({ filters, setFilters }) => {
       <FilterContainer>
         <ActivBox>
           <FilterName>
-            <ChevronIcon src={chevron} /> სტუდენტის სახელი
+            <ChevronIcon src={chevron} alt="arrow" /> სტუდენტის სახელი
           </FilterName>
           <FilterBox>
             <FilterInput
@@ -58,7 +58,7 @@ const Filter = ({ filters, setFilters }) => {
           </FilterBox>
 
           <FilterName>
-            <ChevronIcon src={chevron} /> სქესი
+            <ChevronIcon src={chevron} alt="arrow" /> სქესი
           </FilterName>
         </ActivBox>
 

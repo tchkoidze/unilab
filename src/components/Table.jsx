@@ -135,8 +135,8 @@ function TableComponent({ data, filters, setfilters }) {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          <PaginationArrow src={leftArrows} />
-          <PaginationArrow src={leftArrow} />
+          <PaginationArrow src={leftArrows} alt="arrow" />
+          <PaginationArrow src={leftArrow} alt="arrow" />
         </PaginationArrowBtns>
 
         {[...Array(totalPages).keys()].map((page) => (
@@ -155,8 +155,8 @@ function TableComponent({ data, filters, setfilters }) {
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          <PaginationArrow src={rightArrow} />
-          <PaginationArrow src={rightArrows} />
+          <PaginationArrow src={rightArrow} alt="arrow" />
+          <PaginationArrow src={rightArrows} alt="arrow" />
         </PaginationArrowBtns>
       </Pagination>
     </TableWrapper>

@@ -63,7 +63,6 @@ const Registration = () => {
             <PhotoInputBox>
               <Label>add a photo</Label>
               <ImgLabel htmlFor="avatar">
-                {/*<ImgUpload src={camera1} />*/}
                 {selectedImage ? (
                   <SelectedImg src={selectedImage} alt="Selected Image" />
                 ) : (
