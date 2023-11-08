@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import leftArrows from "../assets/images/chevrons-left.png";
+import rightArrows from "../assets/images/chevrons-right.png";
+import leftArrow from "../assets/images/chevron-left.png";
+import rightArrow from "../assets/images/chevronright.png";
 
 const TableWrapper = styled.div`
-  //margin: 20px;
   font-family: Arial, sans-serif;
-  //width: 1200px;
-  //width: 100%;
-  overflow-x: auto;
+  font-family: Montserrat, sans-serif;
+`;
+
+const TableContainer = styled.div`
+  width: 1200px;
+  overflow-x: scroll;
   background-color: #fff;
+  border-radius: 8px;
+  &::-webkit-slider-thumb {
+    background: red;
+    border-radius: 10px;
+  }
 `;
 
 const Table = styled.table`
@@ -19,22 +30,31 @@ const Table = styled.table`
 `;
 
 const Th = styled.th`
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-  min-width: 150px;
+  min-width: 250px;
+  height: 75px;
+  border-bottom: 1px solid #315c8e;
+  padding: 0 35px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 132.99%;
+  text-transform: uppercase;
 `;
 
 const Td = styled.td`
-  border: 1px solid #ccc;
   padding: 8px;
-  text-align: left;
-  min-width: 150px;
+  text-align: center;
+  min-width: 180px;
 `;
 
 const Pagination = styled.div`
   text-align: center;
-  margin-top: 10px;
+  margin-top: 69px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const PaginationButton = styled.span`
@@ -42,70 +62,59 @@ const PaginationButton = styled.span`
   cursor: pointer;
 `;
 
-const itemsPerPage = 7;
+const PaginationArrowBtns = styled.div``;
+
+const PaginationArrow = styled.img``;
 
 function TableComponent({ data, filters, setfilters }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [displayData, setDisplayData] = useState([]);
-  let totalPages;
-  //const totalPages = Math.ceil(data.length / itemsPerPage);
+  const [rowsPerPage] = useState(7);
 
-  // Filter the data based on selected filter options
-  /*const filteredData = displayData.filter((item) => {
+  const filteredData = data.filter((item) => {
     const { status, sex } = item;
     return filters.status.includes(status) && filters.sex.includes(sex);
   });
-  console.log("filtered: ", filteredData.length);*/
-  //const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-  let filteredData;
-  useEffect(() => {
-    // Filter the data based on the selected filter options
-    filteredData = data.filter((item) => {
-      const { status, sex } = item;
-      return filters.status.includes(status) && filters.sex.includes(sex);
+
+  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = startIndex + rowsPerPage;
+  const paginatedData = filteredData.slice(startIndex, endIndex);
+
+  const handleFilterChange = (filterType, filterValue) => {
+    setfilters({
+      ...filters,
+      [filterType]: filters[filterType].includes(filterValue)
+        ? filters[filterType].filter((value) => value !== filterValue)
+        : [...filters[filterType], filterValue],
     });
+    setCurrentPage(1);
+  };
 
-    totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    console.log(startIndex);
-    const endIndex = startIndex + itemsPerPage;
-    const itemsToDisplay = data.slice(startIndex, endIndex);
-    setDisplayData(itemsToDisplay);
-  }, [data, filters, currentPage]);
-
-  const renderTable = () => (
-    <Table>
-      <thead>
-        <tr>
-          <Th>Full Name</Th>
-          <Th>Status</Th>
-          <Th>Sex</Th>
-          <Th>Grades</Th>
-          <Th>ID</Th>
-          <Th>Email</Th>
-          <Th>Phone Number</Th>
-          <Th>Address</Th>
-          <Th>Birth Date</Th>
-        </tr>
-      </thead>
-      <tbody>
-        {/*displayData.map((item, index) => (
-          <tr key={index}>
-            <Td>{item["full-name"]}</Td>
-            <Td>{item["status"]}</Td>
-            <Td>{item["sex"]}</Td>
-            <Td>{item["grades"]}</Td>
-            <Td>{item["id"]}</Td>
-            <Td>{item["email"]}</Td>
-            <Td>{item["phone-number"]}</Td>
-            <Td>{item["address"]}</Td>
-            <Td>{item["birth-date"]}</Td>
-          </tr>
-        ))*/}
-        {filteredData
-          ? filteredData.map((item, index) => (
-              <tr key={index}>
+  return (
+    <TableWrapper>
+      <TableContainer>
+        <Table>
+          <thead>
+            <tr>
+              <Th>სტუდენტის სახელი და გვარი</Th>
+              <Th>სტატუსი</Th>
+              <Th>სქესი</Th>
+              <Th>ქულები</Th>
+              <Th>პირადი ნომერი</Th>
+              <Th>ელფოსტა</Th>
+              <Th>ტელეფონი</Th>
+              <Th>მისამართი</Th>
+              <Th>დაბადების თარიღი</Th>
+            </tr>
+          </thead>
+          <tbody>
+            {paginatedData.map((item, index) => (
+              <tr key={index} style={{ height: "75px" }}>
                 <Td>{item["full-name"]}</Td>
                 <Td>{item["status"]}</Td>
                 <Td>{item["sex"]}</Td>
@@ -116,48 +125,42 @@ function TableComponent({ data, filters, setfilters }) {
                 <Td>{item["address"]}</Td>
                 <Td>{item["birth-date"]}</Td>
               </tr>
-            ))
-          : null}
-      </tbody>
-    </Table>
-  );
+            ))}
+          </tbody>
+        </Table>
+      </TableContainer>
 
-  const renderPagination = () => (
-    <Pagination>
-      {Array.from({ length: totalPages }, (_, i) => (
-        <PaginationButton
-          key={i}
-          onClick={() => setCurrentPage(i + 1)}
-          style={{ fontWeight: currentPage === i + 1 ? "bold" : "normal" }}
+      <Pagination>
+        <PaginationArrowBtns
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
         >
-          {i + 1}
-        </PaginationButton>
-      ))}
-    </Pagination>
-  );
+          <PaginationArrow src={leftArrows} />
+          <PaginationArrow src={leftArrow} />
+        </PaginationArrowBtns>
 
-  return (
-    <TableWrapper>
-      {renderTable()}
-
-      {renderPagination()}
+        {[...Array(totalPages).keys()].map((page) => (
+          <PaginationButton
+            key={page}
+            onClick={() => handlePageChange(page + 1)}
+            style={{
+              fontWeight: currentPage === page + 1 ? "bold" : "normal",
+              textDecoration: currentPage === page + 1 ? "underline" : "none",
+            }}
+          >
+            {page + 1}
+          </PaginationButton>
+        ))}
+        <PaginationArrowBtns
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          <PaginationArrow src={rightArrow} />
+          <PaginationArrow src={rightArrows} />
+        </PaginationArrowBtns>
+      </Pagination>
     </TableWrapper>
   );
 }
 
 export default TableComponent;
-
-/*
-{ filteredData.map((item, index) => (
-          <tr key={index}>
-            <Td>{item["full-name"]}</Td>
-            <Td>{item["status"]}</Td>
-            <Td>{item["sex"]}</Td>
-            <Td>{item["grades"]}</Td>
-            <Td>{item["id"]}</Td>
-            <Td>{item["email"]}</Td>
-            <Td>{item["phone-number"]}</Td>
-            <Td>{item["address"]}</Td>
-            <Td>{item["birth-date"]}</Td>
-          </tr>
-        ))}*/

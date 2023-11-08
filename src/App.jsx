@@ -5,6 +5,7 @@ import Registration from "./pages/Registration";
 import Header from "./layouts/Header";
 import FormPage from "./pages/Form";
 import Popup from "./components/Popup";
+import Api from "./pages/ApiPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/form" element={<FormPage />} />
+        <Route path="/api" element={<Api />} />
       </Routes>
     </>
   );

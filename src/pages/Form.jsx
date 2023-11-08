@@ -5,6 +5,7 @@ import data from "../assets/student.json";
 import TableComponent from "../components/Table";
 import Filter from "../components/Filters";
 import { useState } from "react";
+import StudentTable from "../components/StudenInfoTable";
 
 const jsonData = data;
 
@@ -46,7 +47,7 @@ const FormPage = () => {
         </Searchbox>
       </Box1>
       <StudentInfoBox>
-        <div style={{ width: "1200px", position: "relative" }}>
+        <div style={{ position: "relative" }}>
           <TableComponent
             data={jsonData}
             filters={filters}
@@ -54,6 +55,7 @@ const FormPage = () => {
           />
           {filter ? <Filter filters={filters} setFilters={setFilters} /> : null}
         </div>
+        ;
       </StudentInfoBox>
     </Main>
   );
@@ -76,6 +78,7 @@ const FilterBtn = styled.button`
   background-color: #fff;
   border-radius: 10px;
   padding: 6px 10px;
+  border: none;
 `;
 
 const FilterImg = styled.img`
@@ -87,6 +90,7 @@ const SpanFilter = styled.span`
   font-weight: 500;
   line-height: 132.99%;
   margin-right: 60px;
+  font-family: Montserrat, sans-serif;
 `;
 
 const Searchbox = styled.div`
@@ -108,5 +112,4 @@ const SearchInput = styled.input`
 const StudentInfoBox = styled.div`
   display: flex;
   justify-content: center;
-  position: relative;
 `;

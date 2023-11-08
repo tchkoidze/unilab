@@ -106,7 +106,7 @@ export default Filter;
 const FilterContainer = styled.div`
   background-color: #fff;
   position: absolute;
-  left: -305px;
+  left: -315px;
   top: 21px;
   width: 297px;
   padding-left: 25px;
@@ -125,7 +125,11 @@ const ChevronIcon = styled.img`
   margin-right: 5px;
 `;
 
-const FilterName = styled.h3``;
+const FilterName = styled.h3`
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+`;
 
 const FilterLabel = styled.label``;
 

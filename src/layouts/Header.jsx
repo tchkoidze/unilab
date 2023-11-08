@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = (props) => {
-  // Get the name from local storage
-  const name = localStorage.getItem("name");
-  // Get the avatar image from local storage
-  const avatarDataURL = localStorage.getItem("avatar");
+  const [name, setName] = useState("");
+  const [avatarDataURL, setAvatarDataURL] = useState("");
+  useEffect(() => {
+    setName(localStorage.getItem("name") || "");
+    setAvatarDataURL(localStorage.getItem("avatar") || "");
+    console.log(localStorage.getItem("avatar"));
+  }, []);
 
   return (
     <HeaderContainer>
       <Form>Form</Form>
 
       <Box>
-        <ApiLink>API</ApiLink>
+        <ApiLink to="/api">API</ApiLink>
         <UserContainer>
           <UserName>{name}</UserName>
           <UserImg src={avatarDataURL} onClick={() => props.setClose(true)} />
@@ -33,6 +36,7 @@ const HeaderContainer = styled.header`
   color: #fff;
   padding: 0 62px;
   border-bottom: 1px solid #ebebeb;
+  font-family: Montserrat, sans-serif;
 `;
 
 const Form = styled.p`
@@ -44,6 +48,7 @@ const Form = styled.p`
 
 const Box = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const ApiLink = styled(Link)`

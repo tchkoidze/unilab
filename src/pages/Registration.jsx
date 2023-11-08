@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import camera from "../assets/images/camera.png";
 import camera1 from "../assets/images/camera1.svg";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -12,6 +12,8 @@ const Registration = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -24,15 +26,33 @@ const Registration = () => {
 
       // Save the avatar image to local storage
       localStorage.setItem("avatar", avatarDataURL);
+      // Save the name to local storage
+      localStorage.setItem("name", data.name);
+
+      navigate("/form");
     };
 
     reader.readAsDataURL(avatar);
-
-    // Save the name to local storage
-    localStorage.setItem("name", data.name);
-
-    navigate("/form");
   };
+
+  // Function to update the selected image
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      const avatarDataURL = event.target.result;
+
+      // Update the selectedImage state with the data URL
+      setSelectedImage(avatarDataURL);
+    };
+    console.log(55);
+    reader.readAsDataURL(file);
+  };
+
+  useEffect(() => {
+    register("name");
+  }, [register]);
 
   return (
     <>
@@ -43,12 +63,20 @@ const Registration = () => {
             <PhotoInputBox>
               <Label>add a photo</Label>
               <ImgLabel htmlFor="avatar">
-                <ImgUpload src={camera1} />
+                {/*<ImgUpload src={camera1} />*/}
+                {selectedImage ? (
+                  <SelectedImg src={selectedImage} alt="Selected Image" />
+                ) : (
+                  <ImgUpload src={camera1} alt="Camera Icon" />
+                )}
               </ImgLabel>
               <InputImg
                 id="avatar"
                 type="file"
-                {...register("avatar", { required: true })}
+                {...register("avatar", {
+                  required: true,
+                  onChange: handleImageChange,
+                })}
               />
             </PhotoInputBox>
             <InputBox>
@@ -57,7 +85,9 @@ const Registration = () => {
                 id="name"
                 type="text"
                 placeholder="your name"
-                {...register("name", { required: true })}
+                {...register("name", {
+                  required: true,
+                })}
               />
             </InputBox>
             <BtnBox>
@@ -79,6 +109,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: Montserrat, sans-serif;
 `;
 
 const RegistrationBox = styled.div`
@@ -94,7 +125,6 @@ const RegistrationBox = styled.div`
 const RegistrationHeader = styled.h1`
   color: #000;
   text-align: center;
-  //font-family: Montserrat;
   font-size: 64px;
   font-style: normal;
   font-weight: 400;
@@ -115,7 +145,6 @@ const PhotoInputBox = styled(InputBox)`
   margin-bottom: 11px;
 `;
 
-const Imgheader = styled.h3``;
 const ImgLabel = styled.label`
   width: 200px;
   height: 200px;
@@ -131,13 +160,14 @@ const InputImg = styled.input`
   visibility: hidden;
 `;
 
-const ImgUpload = styled.img`
-  //display: block;
+const ImgUpload = styled.img``;
+
+const SelectedImg = styled.img`
+  width: 80px;
+  height: 80px;
 `;
+
 const Label = styled.label`
-  //color: #000;
-  //text-align: center;
-  //font-family: Montserrat;
   font-size: 36px;
   font-style: normal;
   font-weight: 400;
@@ -145,9 +175,8 @@ const Label = styled.label`
 `;
 const InputName = styled.input`
   color: #a5a5a5;
-
-  //font-family: Montserrat;
   font-size: 36px;
+  font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -169,9 +198,7 @@ const SigninBtn = styled.button`
   border-radius: 50px;
   background: #4980c0;
   color: #fff;
-
-  //text-align: center;
-  //font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;

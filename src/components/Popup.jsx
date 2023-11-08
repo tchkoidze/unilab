@@ -28,12 +28,14 @@ const PopupContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 1920px;
+
+  min-height: 1080px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
 `;
 
 const PopupBox = styled.div`
@@ -45,6 +47,9 @@ const PopupBox = styled.div`
   justify-content: center;
   gap: 20px;
   background-color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+  z-index: 2;
 `;
 
 const LogoutBtn = styled.button`
