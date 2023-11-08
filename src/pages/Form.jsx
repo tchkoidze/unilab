@@ -5,7 +5,6 @@ import data from "../assets/student.json";
 import TableComponent from "../components/Table";
 import Filter from "../components/Filters";
 import { useState } from "react";
-import StudentTable from "../components/StudenInfoTable";
 
 const jsonData = data;
 
